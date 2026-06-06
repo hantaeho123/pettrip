@@ -1,3 +1,16 @@
 .map-page     { display: flex; flex: 1; overflow: hidden; }
 .map-area     { flex: 1; overflow: hidden; }
-.place-panel  { width: 300px; border-left: 0.5px solid var(--pt-border); display: flex; flex-direction: column; overflow: hidden; flex-shrink: 0; }
+.place-panel  { width: 300px; border-left: 0.5px solid var(--pt-border); display: flex; flex-direction: column; overflow: hidden; flex-shrink: 0; padding: 12px; gap: 12px; }
+
+.search-info {
+  padding: 10px;
+  background-color: #fff3cd;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.search-info strong {
+  font-weight: 600;
+}

@@ -1,21 +1,40 @@
 import { useState, useEffect } from 'react';
-import { getPlaces } from '../api';
-import KakaoMap from '../components/Map/KakaoMap';
-import PlaceList from '../components/Place/PlaceList';
-import PlaceDetail from '../components/Place/PlaceDetail';
+import { getPlaces, searchPlaces } from '../../api';
+import KakaoMap from '../Map/KakaoMap';
+import PlaceList from '../Place/PlaceList';
+import PlaceDetail from '../Place/PlaceDetail';
+import SearchBar from '../Sidebar/SearchBar';
 import './MapPage.css';
 
 export default function MapPage({ filters }) {
   const [places, setPlaces] = useState([]);
   const [selected, setSelected] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
+    loadPlaces();
+  }, [filters, searchQuery]);
+
+  const loadPlaces = () => {
     const params = {};
     if (filters.category !== '전체') params.category = filters.category;
-    getPlaces(params)
+
+    const request = searchQuery
+      ? searchPlaces(searchQuery, params)
+      : getPlaces(params);
+
+    request
       .then(setPlaces)
       .catch(() => setPlaces([]));
-  }, [filters]);
+  };
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+
+  const handleClearSearch = () => {
+    setSearchQuery('');
+  };
 
   return (
     <div className="map-page">
@@ -29,11 +48,19 @@ export default function MapPage({ filters }) {
         {selected ? (
           <PlaceDetail place={selected} onBack={() => setSelected(null)} />
         ) : (
-          <PlaceList
-            places={places}
-            selectedId={selected?.place_id}
-            onSelect={setSelected}
-          />
+          <>
+            <SearchBar onSearch={handleSearch} onClear={handleClearSearch} />
+            {searchQuery && (
+              <div className="search-info">
+                <span>검색 결과: <strong>{searchQuery}</strong> ({places.length}개)</span>
+              </div>
+            )}
+            <PlaceList
+              places={places}
+              selectedId={selected?.place_id}
+              onSelect={setSelected}
+            />
+          </>
         )}
       </div>
     </div>

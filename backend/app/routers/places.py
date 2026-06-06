@@ -9,16 +9,20 @@ router = APIRouter()
 @router.get("/", response_model=List[schemas.PlaceOut])
 def get_places(
     category:   Optional[str]   = Query(None, description="카테고리 필터 (카페, 식당, 숙소, 공원)"),
+    search:     Optional[str]   = Query(None, description="가게명 또는 지역명으로 검색"),
     min_lat:    Optional[float]  = Query(None),
     max_lat:    Optional[float]  = Query(None),
     min_lng:    Optional[float]  = Query(None),
     max_lng:    Optional[float]  = Query(None),
     db: Session = Depends(get_db)
 ):
-    """지도 화면 좌표 범위 + 카테고리 필터로 장소 목록 반환"""
+    """지도 화면 좌표 범위 + 카테고리 필터 + 검색으로 장소 목록 반환"""
     q = db.query(models.KtoPetPlace)
     if category:
         q = q.filter(models.KtoPetPlace.category == category)
+    if search:
+        search_term = f"%{search}%"
+        q = q.filter(models.KtoPetPlace.place_name.ilike(search_term))
     if min_lat and max_lat:
         q = q.filter(models.KtoPetPlace.latitude.between(min_lat, max_lat))
     if min_lng and max_lng:

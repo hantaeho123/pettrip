@@ -8,6 +8,9 @@ const api = axios.create({
 export const getPlaces = (params) =>
   api.get('/api/places', { params }).then(r => r.data);
 
+export const searchPlaces = (query, params = {}) =>
+  api.get('/api/places', { params: { ...params, search: query } }).then(r => r.data);
+
 export const getPlaceDetail = (placeId) =>
   api.get(`/api/places/${placeId}`).then(r => r.data);
 
