@@ -1,0 +1,25 @@
+.place-list { flex: 1; overflow-y: auto; }
+.list-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-bottom: 0.5px solid var(--pt-border); }
+.list-title  { font-size: 13px; font-weight: 500; }
+.list-count  { font-size: 12px; color: var(--pt-primary); font-weight: 500; }
+
+.place-item  {
+  padding: 12px 14px;
+  border-bottom: 0.5px solid var(--pt-border);
+  cursor: pointer;
+  transition: background 0.12s;
+  border-left: 2px solid transparent;
+}
+.place-item:hover { background: var(--pt-bg-secondary); }
+.place-item.sel   { background: var(--pt-bg-secondary); border-left-color: var(--pt-primary); }
+
+.place-top   { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.place-name  { font-size: 13px; font-weight: 500; }
+.place-badge { font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 500; }
+.cat-restaurant { background: var(--pt-primary-light); color: var(--pt-primary-dark); }
+.cat-cafe       { background: var(--pt-amber-light);   color: #854F0B; }
+.cat-hotel      { background: #EEEDFE; color: #534AB7; }
+.cat-park       { background: #EAF3DE; color: #3B6D11; }
+
+.place-addr   { font-size: 11px; color: var(--pt-text-muted); margin-bottom: 4px; }
+.place-policy { font-size: 11px; color: var(--pt-primary-dark); }

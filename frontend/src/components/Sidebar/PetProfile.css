@@ -1,0 +1,6 @@
+.pet-profile { padding: 12px; border-bottom: 0.5px solid var(--pt-border); border-top: 0.5px solid var(--pt-border); }
+.pet-label   { font-size: 11px; color: var(--pt-text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.pet-card    { display: flex; align-items: center; gap: 10px; padding: 8px 10px; background: var(--pt-primary-light); border-radius: 10px; cursor: pointer; }
+.pet-avatar  { font-size: 22px; }
+.pet-name    { font-size: 13px; font-weight: 600; color: var(--pt-primary-dark); }
+.pet-breed   { font-size: 11px; color: var(--pt-primary); }
