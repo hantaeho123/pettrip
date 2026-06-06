@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { getPlaces, searchPlaces } from '../../api';
-import KakaoMap from '../Map/KakaoMap';
-import PlaceList from '../Place/PlaceList';
-import PlaceDetail from '../Place/PlaceDetail';
-import SearchBar from '../Sidebar/SearchBar';
+import { getPlaces, searchPlaces } from '../api';
+import KakaoMap from '../components/Map/KakaoMap';
+import PlaceList from '../components/Place/PlaceList';
+import PlaceDetail from '../components/Place/PlaceDetail';
+import SearchBar from '../components/Sidebar/SearchBar';
 import './MapPage.css';
 
 export default function MapPage({ filters }) {
