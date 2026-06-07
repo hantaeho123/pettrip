@@ -1,0 +1,80 @@
+.pet-profile {
+  padding: 16px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.pet-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: var(--ink-300);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.pet-add-btn {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--green-700);
+  background: var(--green-50);
+  padding: 3px 9px;
+  border-radius: 20px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.pet-add-btn:hover { background: var(--green-100); }
+
+.pet-login-hint, .pet-empty {
+  font-size: 12.5px;
+  color: var(--ink-300);
+  line-height: 1.6;
+}
+
+.pet-add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: var(--line-soft);
+  border-radius: var(--r-md);
+}
+.pet-add-form input {
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 7px 9px;
+  font-size: 12.5px;
+  outline: none;
+}
+.pet-add-form input:focus { border-color: var(--green-500); }
+.pet-save-btn {
+  background: var(--green-600);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 8px;
+  border-radius: var(--r-sm);
+}
+.pet-save-btn:hover { background: var(--green-700); }
+
+.pet-list { display: flex; flex-direction: column; gap: 6px; }
+.pet-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 11px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--paper);
+  text-align: left;
+  transition: all 0.14s;
+}
+.pet-card:hover { border-color: var(--green-500); }
+.pet-card.sel { border-color: var(--green-600); background: var(--green-50); }
+.pet-avatar { font-size: 22px; }
+.pet-info { display: flex; flex-direction: column; flex: 1; }
+.pet-name { font-size: 13px; font-weight: 700; color: var(--ink-900); }
+.pet-breed { font-size: 11px; color: var(--ink-500); }
+.pet-check { color: var(--green-600); font-weight: 700; }

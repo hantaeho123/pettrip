@@ -1,0 +1,94 @@
+/* ════════════════════════════════════════════════════════════════
+   PetTrip 글로벌 스타일 & 디자인 토큰
+   컨셉: "자연 속 산책" - 따뜻한 세이지 그린 + 테라코타 + 크림
+   ════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── 컬러 팔레트 ── */
+  --green-900: #14463a;
+  --green-700: #1d7a5f;
+  --green-600: #259571;
+  --green-500: #2faa82;
+  --green-100: #dff3ec;
+  --green-50:  #eff9f5;
+
+  --terra-600: #c0512f;
+  --terra-500: #d9663f;
+  --terra-100: #f9e6dd;
+
+  --amber-500: #e8a33d;
+  --amber-100: #fbeed4;
+
+  --cream:     #fbf8f2;
+  --paper:     #ffffff;
+  --ink-900:   #20211d;
+  --ink-700:   #45463f;
+  --ink-500:   #6e6f66;
+  --ink-300:   #a8a89e;
+  --line:      #e9e6dd;
+  --line-soft: #f2efe7;
+
+  /* ── 카테고리 컬러 ── */
+  --cat-cafe:   #d9663f;
+  --cat-food:   #1d7a5f;
+  --cat-hotel:  #7b6cd0;
+  --cat-park:   #5a9e2f;
+  --cat-tour:   #e8a33d;
+  --cat-etc:    #6e6f66;
+
+  /* ── 타이포 ── */
+  --font-body: "Pretendard", -apple-system, sans-serif;
+  --font-mono: "D2Coding", monospace;
+
+  /* ── 형태 ── */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-xl: 26px;
+  --shadow-sm: 0 1px 3px rgba(20,70,58,0.06), 0 1px 2px rgba(20,70,58,0.04);
+  --shadow-md: 0 4px 16px rgba(20,70,58,0.08);
+  --shadow-lg: 0 12px 40px rgba(20,70,58,0.14);
+
+  --sidebar-w: 280px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root { height: 100%; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--ink-900);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, textarea, select { font-family: inherit; }
+a { color: inherit; text-decoration: none; }
+
+/* 스크롤바 */
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-300); }
+
+/* 공통 애니메이션 */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes popIn {
+  0%   { opacity: 0; transform: scale(0.94); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.fade-up { animation: fadeUp 0.4s ease both; }
+.fade-in { animation: fadeIn 0.3s ease both; }
+
+/* 유틸 */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;
+}

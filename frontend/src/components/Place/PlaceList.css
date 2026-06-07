@@ -1,0 +1,44 @@
+.place-list { display: flex; flex-direction: column; height: 100%; overflow-y: auto; }
+
+.list-header {
+  position: sticky; top: 0;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 16px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  z-index: 2;
+}
+.list-title { font-size: 14px; font-weight: 700; color: var(--ink-900); }
+.list-count { font-size: 12px; font-weight: 600; color: var(--green-700); background: var(--green-50); padding: 3px 10px; border-radius: 20px; }
+
+.list-empty {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 48px 24px; text-align: center;
+  color: var(--ink-300); font-size: 13px; line-height: 1.6;
+}
+
+.place-item {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--line-soft);
+  text-align: left;
+  border-left: 3px solid transparent;
+  transition: background 0.12s;
+  animation: fadeUp 0.3s ease both;
+}
+.place-item:hover { background: var(--green-50); }
+.place-item.sel { background: var(--green-50); border-left-color: var(--green-600); }
+
+.place-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
+.place-name { font-size: 13.5px; font-weight: 600; color: var(--ink-900); line-height: 1.35; }
+.place-badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; background: var(--line); color: var(--ink-700); }
+.c-cafe { background: var(--terra-100); color: var(--terra-600); }
+.c-food { background: var(--green-100); color: var(--green-700); }
+.c-hotel { background: #ece9fb; color: #5a4dba; }
+.c-park { background: #e8f3dc; color: #43760f; }
+.c-tour { background: var(--amber-100); color: #9a6a12; }
+
+.place-addr { font-size: 11.5px; color: var(--ink-500); margin-bottom: 6px; }
+.place-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.place-rating { font-size: 12px; font-weight: 700; color: var(--amber-500); }
+.place-reviews { font-size: 11px; color: var(--ink-300); }
+.place-policy { font-size: 10px; color: var(--green-700); background: var(--green-50); padding: 2px 7px; border-radius: 8px; }
