@@ -19,7 +19,15 @@ from app.database import engine, Base
 from app.routers import auth, places, reviews, pets, stats
 
 # 모델 기준으로 테이블이 없으면 생성 (보통은 ddl.sql로 생성하지만 안전장치)
-# Base.metadata.create_all(bind=engine)
+try:
+    Base.metadata.create_all(bind=engine)
+    print("✨ 테이블이 성공적으로 생성되었습니다.")
+except OperationalError as e:
+    print(f"⚠️ DB 접속 실패(비밀번호 혹은 네트워크 문제): {e}")
+    print("    서버는 계속 실행됩니다. 나중에 수동으로 확인하세요.")
+except Exception as e:
+    print(f"❌ 알 수 없는 오류 발생: {e}")
+
 
 app = FastAPI(
     title="PetTrip API",
