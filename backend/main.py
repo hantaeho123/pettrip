@@ -19,7 +19,7 @@ from app.database import engine, Base
 from app.routers import auth, places, reviews, pets, stats
 
 # 모델 기준으로 테이블이 없으면 생성 (보통은 ddl.sql로 생성하지만 안전장치)
-# Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="PetTrip API",
