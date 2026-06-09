@@ -211,9 +211,9 @@ def main():
     cur.execute("DELETE FROM app_users")
     conn.commit()
 
-    # 유저 (비밀번호는 'password123'을 bcrypt 해시한 고정값으로 - 데모용)
-    from app.core.security import hash_password
-    demo_hash = hash_password("password123")
+    # 유저 (비밀번호는 'password123'을 bcrypt 해시한 고정값 - 데모용)
+    import bcrypt
+    demo_hash = bcrypt.hashpw("password123".encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
 
     print(f"👤 유저 {USER_COUNT:,}명 생성...")
     nicks = make_nicknames(USER_COUNT)
