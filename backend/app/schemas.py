@@ -81,7 +81,9 @@ class PetCreate(BaseModel):
     pet_weight: Optional[float] = None
 
 class PetOut(PetCreate):
-    pet_id: int
+    pet_id:      int
+    invite_code: Optional[str] = None
+    photo_url:   Optional[str] = None
 
     class Config:
         from_attributes = True

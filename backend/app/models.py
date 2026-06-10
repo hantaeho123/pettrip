@@ -78,10 +78,12 @@ class Pet(Base):
     """반려동물 개체 (가상 데이터)"""
     __tablename__ = "pets"
 
-    pet_id     = Column(Integer, primary_key=True, autoincrement=True)
-    pet_name   = Column(String(50), nullable=False)
-    pet_breed  = Column(String(50))
-    pet_weight = Column(Numeric(5, 2))
+    pet_id      = Column(Integer, primary_key=True, autoincrement=True)
+    pet_name    = Column(String(50), nullable=False)
+    pet_breed   = Column(String(50))
+    pet_weight  = Column(Numeric(5, 2))
+    invite_code = Column(String(10), unique=True)      # 공동 소유 초대코드
+    photo_url   = Column(Text)                         # 강아지 프로필 사진
 
     user_mappings = relationship("UserPetMap", back_populates="pet", cascade="all, delete")
 
