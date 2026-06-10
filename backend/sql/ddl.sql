@@ -74,10 +74,12 @@ CREATE TABLE app_users (
 -- 3. [가상 데이터] 반려동물 개체 정보
 -- ────────────────────────────────────────────────────────────────────
 CREATE TABLE pets (
-    pet_id     SERIAL PRIMARY KEY,
-    pet_name   VARCHAR(50) NOT NULL,
-    pet_breed  VARCHAR(50),
-    pet_weight DECIMAL(5, 2)                            -- 몸무게(kg) - 필터링에 사용
+    pet_id      SERIAL PRIMARY KEY,
+    pet_name    VARCHAR(50) NOT NULL,
+    pet_breed   VARCHAR(50),
+    pet_weight  DECIMAL(5, 2),                         -- 몸무게(kg) - 필터링에 사용
+    invite_code VARCHAR(10) UNIQUE,                    -- 공동 소유 초대코드 (6자리 랜덤)
+    photo_url   TEXT                                   -- 강아지 프로필 사진 경로
 );
 
 

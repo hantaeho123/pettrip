@@ -40,8 +40,20 @@ export const getCommunityFeed = (limit = 30) =>
 
 // ── 반려동물 ────────────────────────────────────────────
 export const getUserPets = (userId) => api.get(`/api/pets/user/${userId}`).then((r) => r.data);
-export const createPet = (data, userId) =>
-  api.post("/api/pets/", data, { params: { user_id: userId } }).then((r) => r.data);
+
+export const createPet = (formData) =>
+  api.post("/api/pets/", formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  }).then((r) => r.data);
+
+export const updatePetPhoto = (petId, formData) =>
+  api.put(`/api/pets/${petId}/photo`, formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  }).then((r) => r.data);
+
+export const joinByInviteCode = (code, userId) =>
+  api.post("/api/pets/join-by-code", null, { params: { invite_code: code, user_id: userId } }).then((r) => r.data);
+
 export const addCoOwner = (petId, userId) =>
   api.post(`/api/pets/${petId}/co-owner/${userId}`).then((r) => r.data);
 export const getBreedRanking = (breed) =>

@@ -1,42 +1,116 @@
 .community { max-width: 1100px; margin: 0 auto; padding: 32px 24px 60px; }
-.community-header { margin-bottom: 28px; }
+.community-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 24px; gap: 16px;
+}
 .community-header h1 { font-size: 26px; font-weight: 800; color: var(--ink-900); margin-bottom: 6px; }
 .community-header p { font-size: 14px; color: var(--ink-500); }
-
 .community-loading, .community-empty {
   display: flex; flex-direction: column; align-items: center; gap: 12px;
-  padding: 80px 20px; text-align: center;
-  color: var(--ink-300); font-size: 14px; line-height: 1.7;
+  padding: 80px 20px; text-align: center; color: var(--ink-300); font-size: 14px; line-height: 1.7;
 }
 
+.brag-write-btn {
+  background: var(--green-600); color: #fff;
+  font-size: 13px; font-weight: 700; padding: 10px 20px;
+  border-radius: var(--r-md); white-space: nowrap; flex-shrink: 0;
+  transition: background 0.14s;
+}
+.brag-write-btn:hover { background: var(--green-700); }
+
+.brag-login-cta {
+  text-align: center; padding: 20px; margin-bottom: 24px;
+  background: var(--green-50); border-radius: var(--r-lg);
+  font-size: 14px; color: var(--green-700); font-weight: 600;
+}
+
+/* ── 자랑글 작성 폼 ── */
+.brag-form {
+  background: var(--paper); border: 1.5px solid var(--green-100);
+  border-radius: var(--r-lg); padding: 22px; margin-bottom: 28px;
+  box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 12px;
+}
+.brag-form-title { font-size: 16px; font-weight: 800; color: var(--ink-900); }
+
+.brag-place-search { position: relative; }
+.brag-search-row { display: flex; gap: 6px; }
+.brag-search-row input {
+  flex: 1; border: 1.5px solid var(--line); border-radius: var(--r-md);
+  padding: 10px 14px; font-size: 13px; outline: none;
+}
+.brag-search-row input:focus { border-color: var(--green-500); }
+.brag-search-row button {
+  background: var(--green-600); color: #fff; font-size: 12px; font-weight: 700;
+  padding: 10px 18px; border-radius: var(--r-md); white-space: nowrap;
+}
+.brag-search-results {
+  position: absolute; top: 48px; left: 0; right: 0; z-index: 10;
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-md);
+  box-shadow: var(--shadow-md); max-height: 200px; overflow-y: auto;
+}
+.brag-search-item {
+  display: block; width: 100%; text-align: left;
+  padding: 10px 14px; font-size: 13px; color: var(--ink-700); border-bottom: 1px solid var(--line-soft);
+}
+.brag-search-item:hover { background: var(--green-50); }
+.brag-search-item span { font-size: 11px; color: var(--ink-300); margin-left: 6px; }
+
+.brag-selected-place {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 9px 14px; background: var(--green-50); border-radius: var(--r-md);
+  font-size: 13px; font-weight: 600; color: var(--green-700); margin-top: 6px;
+}
+.brag-selected-place button { font-size: 14px; color: var(--ink-300); }
+
+.brag-photo-input {
+  font-size: 13px; color: var(--ink-700); padding: 14px;
+  border: 2px dashed var(--line); border-radius: var(--r-md);
+  cursor: pointer; text-align: center; transition: border-color 0.14s;
+}
+.brag-photo-input:hover { border-color: var(--green-500); color: var(--green-700); }
+
+.brag-rating-row {
+  display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--ink-700);
+}
+.star-picker { display: flex; gap: 3px; }
+.star { font-size: 22px; color: var(--line); transition: color 0.1s; }
+.star.on { color: var(--amber-500); }
+
+.brag-form textarea {
+  border: 1.5px solid var(--line); border-radius: var(--r-md);
+  padding: 10px 14px; font-size: 13px; min-height: 70px; resize: vertical; outline: none;
+}
+.brag-form textarea:focus { border-color: var(--green-500); }
+
+.brag-submit {
+  background: var(--green-600); color: #fff; font-size: 14px; font-weight: 700;
+  padding: 13px; border-radius: var(--r-md); transition: background 0.14s;
+}
+.brag-submit:hover:not(:disabled) { background: var(--green-700); }
+.brag-submit:disabled { opacity: 0.5; cursor: default; }
+
+/* ── 피드 카드 ── */
 .brag-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 18px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px;
 }
 .brag-card {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-sm);
   transition: transform 0.18s, box-shadow 0.18s;
 }
 .brag-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-
-.brag-photo { position: relative; height: 200px; background: var(--green-100); }
+.brag-photo { position: relative; height: 220px; background: var(--green-100); }
 .brag-photo img { width: 100%; height: 100%; object-fit: cover; }
 .brag-photo.no-img::after {
   content: "🐾"; position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
   font-size: 44px; opacity: 0.5;
 }
-.brag-rating {
+.brag-rating-badge {
   position: absolute; top: 10px; right: 10px;
   background: rgba(0,0,0,0.55); color: #fff;
   font-size: 10px; padding: 3px 8px; border-radius: 12px;
 }
-
 .brag-body { padding: 13px 15px 16px; }
 .brag-place { font-size: 11.5px; font-weight: 600; color: var(--green-700); display: block; margin-bottom: 6px; }
 .brag-comment {
