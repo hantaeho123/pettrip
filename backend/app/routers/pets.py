@@ -174,14 +174,14 @@ def pet_diary(pet_id: int, db: Session = Depends(get_db)):
     """멍트립 다이어리: 공동 소유 가족 전원의 통합 방문 이력."""
     rows = db.execute(text("""
         SELECT DISTINCT
-            pt.pet_name, p.place_name, r.rating, u.nickname, r.comment
+            pt.pet_name, p.place_name, r.rating, u.nickname, r.comment, r.created_at
         FROM pets pt
         JOIN user_pet_map  m ON pt.pet_id  = m.pet_id
         JOIN app_users     u ON m.user_id  = u.user_id
         JOIN place_reviews r ON u.user_id  = r.user_id
         JOIN kto_pet_places p ON r.place_id = p.place_id
         WHERE pt.pet_id = :pid
-        ORDER BY r.rating DESC
+        ORDER BY r.created_at DESC
     """), {"pid": pet_id}).fetchall()
     return [dict(r._mapping) for r in rows]
 

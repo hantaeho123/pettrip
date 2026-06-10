@@ -127,3 +127,4 @@ class DiaryEntry(BaseModel):
     rating:     int
     nickname:   str
     comment:    Optional[str] = None
+    created_at: Optional[datetime] = None

@@ -70,7 +70,10 @@ export default function DiaryView() {
                       <span className="diary-stars">{"⭐".repeat(e.rating)}</span>
                     </div>
                     {e.comment && <p className="diary-comment">{e.comment}</p>}
-                    <span className="diary-by">{e.nickname}님이 기록 · {e.pet_name}와 함께</span>
+                    <span className="diary-by">
+                      {e.nickname}님이 기록 · {e.pet_name}와 함께
+                      {e.created_at && ` · ${new Date(e.created_at).toLocaleDateString("ko-KR")}`}
+                    </span>
                   </div>
                 </div>
               ))}

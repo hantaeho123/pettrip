@@ -165,6 +165,9 @@ export default function CommunityFeed() {
                 {p.place_name && <span className="brag-place">📍 {p.place_name}</span>}
                 <p className="brag-comment">{p.comment}</p>
                 <span className="brag-user">— {p.nickname}</span>
+                {p.created_at && (
+                  <span className="brag-date">{new Date(p.created_at).toLocaleDateString("ko-KR")}</span>
+                )}
               </div>
             </div>
           ))}

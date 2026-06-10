@@ -49,8 +49,8 @@ export default function PlaceDetail({ placeId, onBack }) {
   const infoRows = [
     ["🐕 동반 가능", place.pet_size_limit],
     ["📋 필요사항", place.pet_policy],
-    ["🏠 실내 동반", place.is_indoor_allowed ? "가능" : "야외만"],
-    ["🌳 야외 공간", place.has_outdoor_yard ? "있음" : "없음"],
+    ["🏠 실내 동반", place.is_indoor_allowed === true ? "가능" : place.is_indoor_allowed === false ? "야외만" : null],
+    ["🌳 야외 공간", place.has_outdoor_yard === true ? "있음" : place.has_outdoor_yard === false ? "없음" : null],
     ["🛎️ 비치 품목", place.amenities],
     ["🕐 운영시간", place.operating_hours],
     ["🚫 휴무일", place.closed_days],
@@ -93,7 +93,7 @@ export default function PlaceDetail({ placeId, onBack }) {
             {infoRows.map(([k, v]) => (
               <div className="info-row" key={k}>
                 <span className="info-key">{k}</span>
-                <span className="info-val">{v}</span>
+                <span className="info-val" dangerouslySetInnerHTML={{ __html: v }} />
               </div>
             ))}
           </div>
@@ -136,13 +136,16 @@ export default function PlaceDetail({ placeId, onBack }) {
                   <span className="review-user">{r.nickname || "익명"}</span>
                   <span className="review-stars">{"⭐".repeat(r.rating)}</span>
                 </div>
+                {r.created_at && (
+                  <span className="review-date">{new Date(r.created_at).toLocaleDateString("ko-KR")}</span>
+                )}
                 {r.photo_url && (
                   <img className="review-photo" src={mediaUrl(r.photo_url)} alt="리뷰 사진"
                     onError={(e) => (e.target.style.display = "none")} />
                 )}
                 <p className="review-text">{r.comment}</p>
                 {user && user.user_id === r.user_id && (
-                  <button className="review-del" onClick={() => handleDelete(r.review_id)}>삭제</button>
+                  <button className="review-del-btn" onClick={() => handleDelete(r.review_id)}>🗑️ 삭제</button>
                 )}
               </div>
             ))}

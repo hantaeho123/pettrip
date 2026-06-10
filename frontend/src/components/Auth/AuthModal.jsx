@@ -66,9 +66,6 @@ export default function AuthModal({ onClose }) {
           </button>
         </div>
 
-        <p className="auth-demo">
-          데모 계정: petlover1@pettrip.com / password123
-        </p>
       </div>
     </div>
   );
