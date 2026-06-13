@@ -49,7 +49,7 @@ export default function PlaceDetail({ placeId, onBack }) {
   const infoRows = [
     ["🐕 동반 가능", place.pet_size_limit],
     ["📋 필요사항", place.pet_policy],
-    ["🏠 실내 동반", place.is_indoor_allowed === true ? "가능" : place.is_indoor_allowed === false ? "야외만" : null],
+    ["🏠 실내 동반", place.is_indoor_allowed === true ? "가능" : place.is_indoor_allowed === false ? "불가" : null],
     ["🌳 야외 공간", place.has_outdoor_yard === true ? "있음" : place.has_outdoor_yard === false ? "없음" : null],
     ["🛎️ 비치 품목", place.amenities],
     ["🕐 운영시간", place.operating_hours],
