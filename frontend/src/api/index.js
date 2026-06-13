@@ -7,7 +7,10 @@ import axios from "axios";
 
 const BASE = process.env.REACT_APP_API_BASE_URL || "http://localhost:8000";
 
-const api = axios.create({ baseURL: BASE });
+const api = axios.create({
+  baseURL: BASE,
+  headers: { "ngrok-skip-browser-warning": "true" } 
+});
 
 // 업로드 이미지의 절대 경로를 만들어주는 헬퍼
 export const mediaUrl = (path) => (path ? `${BASE}${path}` : null);
