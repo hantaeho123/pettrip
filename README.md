@@ -130,9 +130,3 @@ npm start
 
 ---
 
-## 🔑 데모 계정
-
-```
-이메일: petlover1@pettrip.com  (petlover1~5000까지 존재)
-비밀번호: password123
-```
